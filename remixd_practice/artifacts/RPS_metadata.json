@@ -54,6 +54,24 @@
 						"internalType": "uint256",
 						"name": "roomNum",
 						"type": "uint256"
+					},
+					{
+						"internalType": "enum RPS.Hand",
+						"name": "_hand",
+						"type": "uint8"
+					}
+				],
+				"name": "joinRoom",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "roomNum",
+						"type": "uint256"
 					}
 				],
 				"name": "payout",
@@ -75,7 +93,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"rps.sol": "RPS"
+			"rps_answer.sol": "RPS"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -89,12 +107,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"rps.sol": {
-			"keccak256": "0x2751d004c11ee33a78db76c038628a475b7257bbd7da716c2158e316ae1bb402",
+		"rps_answer.sol": {
+			"keccak256": "0x28092eea393db2c07c024cd725a3884c41c01fd1af637b47f47cb348a04baffc",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://646334a3f9aae302c4d4a722a4b1f14d9629122136d27d456b0bb059983e8e78",
-				"dweb:/ipfs/QmcpdzxMQG8CAq8tHq4snUGXZEtWcCvrQJ9WXPrDtDsQvZ"
+				"bzz-raw://e00dd4bd6726e617bbef0ab3e0594cfbac054d8050758adeea107adb7b5a001e",
+				"dweb:/ipfs/QmSmbFLakhayXVJjAJfZB6KqPf6CPZQZ6KRyHw83JqFPGp"
 			]
 		}
 	},
