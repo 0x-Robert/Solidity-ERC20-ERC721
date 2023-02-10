@@ -1,0 +1,4 @@
+ 2009  npm install -g ganache-cli
+ 2010  ganache-cli version
+ 2011  history
+
