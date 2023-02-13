@@ -157,4 +157,6 @@ contract RPS {
             rooms[roomNum].gameStatus = GameStatus.STATUS_ERROR;
         }
     }
+
+    
 }

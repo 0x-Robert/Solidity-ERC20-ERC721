@@ -96,7 +96,7 @@ contract RPS {
   }
 
   enum GameStatus {
-    STATUS_NOT_STRTED,
+    STATUS_NOT_STARTED,
     STATUS_STARTED,
     STATUS_COMPLETE,
     STATUS_ERROR
@@ -128,7 +128,7 @@ contract RPS {
   function createRoom(bytes32 _hand) public payable returns (uint256 roomNum) {
     rooms[roomLen] = Game({
       betAmount: msg.value,
-      gameStatus: GameStatus.STATUS_NOT_STRTED,
+      gameStatus: GameStatus.STATUS_NOT_STARTED,
       originator: Player({
         hand: _hand,
         addr: payable(msg.sender),

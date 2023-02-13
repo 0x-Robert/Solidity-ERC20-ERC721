@@ -370,7 +370,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"erc20/erc20.sol": "SimpleToken"
+			"erc20/simpleToken2.sol": "SimpleToken"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -384,12 +384,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"erc20/erc20.sol": {
-			"keccak256": "0x338d354f5c07461ec3662f43f3bfae573fec712ebf8b6c39f63491299dee85f0",
+		"erc20/simpleToken2.sol": {
+			"keccak256": "0x5315739362eba26889e535e71c127c12e025e1393981aedfc1d906d2a801d224",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://053c8611b44d8a5ba7feee30cde1f62735333cac3f68f7b5d6d8017a4db14ae7",
-				"dweb:/ipfs/QmVUky4yJe9xhmbiQUoim7tg1ghioyCxbB3mEPxQR4zgED"
+				"bzz-raw://48d98a249e177ee893aed2b5aab1620364e2d5b064315c400c28dfdec9a28c51",
+				"dweb:/ipfs/QmRYVJZ3RZfoMZBGF5tJyjEDpoyYP6Y8F3Rk4kZos5dmTY"
 			]
 		}
 	},
