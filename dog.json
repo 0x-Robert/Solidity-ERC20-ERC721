@@ -1,11 +1,12 @@
 {
-  "name": "cute doori #1",
-  "description": "sleeping doori",
-  "image": "<https://user-images.githubusercontent.com/7809925/218690439-61ecfaf6-6951-4f09-9942-7f9889b20b88.jpg>",
-  "attributes": [
-    {
-      "animal": "dog",
-      "cute": "true"
-    }
-  ]
+  "description": "Sleeping", 
+  "external_url": "https://github.com/shypang/learn_solidity/blob/main/dog.json", 
+  "image": "https://user-images.githubusercontent.com/7809925/218690439-61ecfaf6-6951-4f09-9942-7f9889b20b88.jpg", 
+  "name": "Cute Doori ",
+ "attributes": [
+  {
+       "animal": "dog",
+       "cute": "true"
+  }
+]
 }
