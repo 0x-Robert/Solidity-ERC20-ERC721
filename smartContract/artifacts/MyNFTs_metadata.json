@@ -479,7 +479,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"smartContract/MyNFT.sol": "MyNFTs"
+			"smartContract/YongNft.sol": "MyNFTs"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -597,7 +597,7 @@
 				"dweb:/ipfs/Qmct36zWXv3j7LZB83uwbg7TXwnZSN1fqHNDZ93GG98bGz"
 			]
 		},
-		"smartContract/MyNFT.sol": {
+		"smartContract/YongNft.sol": {
 			"keccak256": "0x55d795681507880ce415c408694af461c17a7dd669f9a7a16574ee643e29e78c",
 			"license": "MIT",
 			"urls": [

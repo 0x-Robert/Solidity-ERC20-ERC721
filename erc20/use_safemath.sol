@@ -1,17 +1,4 @@
 // SPDX-License-Identifier: GPL-3.0
-/*
-internal: internal은 스마트 컨트랙트의 interface로 비공개한다는 것입니다. 계약서(Contract)의 해당 내용을 비공개한다는 의미이며, 계약서의 내부에서만 사용하는 함수라는 것을 표시합니다. 상태변수(state variable)는 internal이 기본값입니다. 함수나 상태 변수에 접근 제어자를 쓰지 않고 비워둔다면 internal로 설정됩니다. 계약서 자신과 상속받은 계약서만 사용할 수 있습니다.
-external: external은 스마트 컨트랙트의 interface로 공개한다는 것입니다. 계약서(Contract)의 해당 내용을 공개한다는 의미이며, 계약서의 외부에서 사용하는 함수라는 것을 표시합니다. 상태변수(state variable)는 external일 수 없습니다. 계약서 내부에서 사용할 경우 this를 사용해서 접근해야 합니다.
-public: 공개 함수입니다. 공개 기능은 계약 인터페이스의 일부이며 내부적으로 또는 메시지를 통해 호출할 수 있습니다. 공개 상태 변수의 경우 자동 getter 함수가 생성됩니다.
-private: 비공개 함수입니다. 비공개함수는 계약서 내부에서도 자신만 사용하는 함수라는 것을 표시합니다. 상태변수와 함수 모두 파생된 계약이 아닌 정의된 계약에서만 볼 수 있습니다.
-
-pure: storage에서 변수를 읽어오거나 쓰지 않는 함수임을 명시합니다.
-constant, view : 상태를 변경하지 않는 함수임을 명시합니다.
-payable: 입금을 받을 수 있는 함수임을 명시합니다.
-
-
-
-*/
 pragma solidity >=0.7.0 <0.9.0;
 
 interface ERC20Interface {
@@ -119,7 +106,7 @@ function transferFrom(address sender, address recipient, uint256 amount) externa
         emit Transfer(msg.sender, sender, recipient, amount);
         uint256 currentAllowance = _allowances[sender][msg.sender];
         require(currentAllowance >= amount, "ERC20: transfer amount exceeds allowance");
-        _approve(sender, msg.sender, currentAllowance, currentAllowance - amount);
+        _approve(sender, msg.sender, currentAllowance, currentAllowance.sub(amount));
         return true;
     }
 
@@ -128,8 +115,8 @@ function transferFrom(address sender, address recipient, uint256 amount) externa
         require(recipient != address(0), "ERC20: transfer to the zero address");
         uint256 senderBalance = _balances[sender];
         require(senderBalance >= amount, "ERC20: transfer amount exceeds balance");
-        _balances[sender] = senderBalance - amount;
-        _balances[recipient] += amount;
+         _balances[sender] = senderBalance.sub(amount);
+        _balances[recipient] = _balances[recipient].add(amount);
     }
 }
 
@@ -149,6 +136,12 @@ function transferFrom(address sender, address recipient, uint256 amount) externa
         return true;
     }
 
+    // function _approve(address owner, address spender, uint256 currentAmount, uint256 amount) internal virtual {
+    //     require(owner != address(0), "ERC20: approve from the zero address");
+    //     require(spender != address(0), "ERC20: approve to the zero address");
+    //     _allowances[owner][spender] = amount;
+    //     emit Approval(owner, spender, currentAmount, amount);
+    // }
     function _approve(address owner, address spender, uint256 currentAmount, uint256 amount) internal virtual {
         require(owner != address(0), "ERC20: approve from the zero address");
         require(spender != address(0), "ERC20: approve to the zero address");

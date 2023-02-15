@@ -58,6 +58,25 @@
 					{
 						"indexed": true,
 						"internalType": "address",
+						"name": "preOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "nextOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
 						"name": "from",
 						"type": "address"
 					},
@@ -159,6 +178,25 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "_personalTokenLock",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "_symbol",
 				"outputs": [
@@ -166,6 +204,19 @@
 						"internalType": "string",
 						"name": "",
 						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "_tokenLock",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
@@ -265,6 +316,30 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					}
+				],
+				"name": "isTokenLock",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "lock",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "name",
 				"outputs": [
@@ -275,6 +350,39 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_who",
+						"type": "address"
+					}
+				],
+				"name": "removePersonalTokenLock",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "removeTokenLock",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -355,6 +463,19 @@
 				],
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -370,7 +491,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"erc20/simpleToken2.sol": "SimpleToken"
+			"erc20/ownerHelper.sol": "SimpleToken"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -384,12 +505,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"erc20/simpleToken2.sol": {
-			"keccak256": "0x5315739362eba26889e535e71c127c12e025e1393981aedfc1d906d2a801d224",
+		"erc20/ownerHelper.sol": {
+			"keccak256": "0x9187c373d9260b82c7e6109707da7b316c1f8b71d61a564ce7c92f067a1210e7",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://48d98a249e177ee893aed2b5aab1620364e2d5b064315c400c28dfdec9a28c51",
-				"dweb:/ipfs/QmRYVJZ3RZfoMZBGF5tJyjEDpoyYP6Y8F3Rk4kZos5dmTY"
+				"bzz-raw://0c6e6baaa512077f3aa422db607f7031699ff88fe5337c95aa0ed01ec43db29c",
+				"dweb:/ipfs/QmcBmA9jtANm28yWSWHn82ET2eFSi1oTTxik2JGoSHAzWd"
 			]
 		}
 	},
