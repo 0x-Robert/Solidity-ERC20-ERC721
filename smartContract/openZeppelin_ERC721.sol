@@ -73,6 +73,7 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
     /**
      * @dev See {IERC721-balanceOf}.
      */
+     //  owner 주소가 가지고 있는 NFT의 개수를 반환합니다.
     function balanceOf(address owner) public view virtual override returns (uint256) {
         require(owner != address(0), "ERC721: address zero is not a valid owner");
         return _balances[owner];
@@ -81,6 +82,8 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
     /**
      * @dev See {IERC721-ownerOf}.
      */
+     // 모든 NFT는 발행된 컨트랙트 내에 고유한 토큰아이디가 있다. 
+     // 컨트랙트 주소와 토큰 아이디만 있으면 NFT 정보에 접근할 수 있다.
     function ownerOf(uint256 tokenId) public view virtual override returns (address) {
         address owner = _ownerOf(tokenId);
         require(owner != address(0), "ERC721: invalid token ID");
@@ -90,6 +93,7 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
     /**
      * @dev See {IERC721Metadata-name}.
      */
+     // 메타데이터 - 이름
     function name() public view virtual override returns (string memory) {
         return _name;
     }
@@ -97,6 +101,7 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
     /**
      * @dev See {IERC721Metadata-symbol}.
      */
+     // 메타데이터 - 심볼
     function symbol() public view virtual override returns (string memory) {
         return _symbol;
     }
@@ -104,6 +109,7 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
     /**
      * @dev See {IERC721Metadata-tokenURI}.
      */
+     // 메타 데이터에서 읽을 tokenURI다. 
     function tokenURI(uint256 tokenId) public view virtual override returns (string memory) {
         _requireMinted(tokenId);
 
@@ -116,6 +122,7 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
      * token will be the concatenation of the `baseURI` and the `tokenId`. Empty
      * by default, can be overridden in child contracts.
      */
+    //토큰 URI를 연산한 것으로 보면 된다. 
     function _baseURI() internal view virtual returns (string memory) {
         return "";
     }
@@ -123,6 +130,11 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
     /**
      * @dev See {IERC721-approve}.
      */
+     //approve 함수는 토큰아이디를 제 3자가 사용할 수 있도록 승인하는 함수다.
+     //approve를 통해 tokenId 사용을 승인 받은 제 3자는 operator라고 부르며
+     //operator는 이 tokenId를 다른 스마트 컨트랙트에 사용하거나 다시 approve할 수 있다. 
+     //approve()함수는 소유권을 승인하는 행위라서 tokenId의 owner나 operator만 호출할 수 있다.
+     //이 함수로 보면 NFT의 핵심은 아무래도 tokenId로 보인다. 
     function approve(address to, uint256 tokenId) public virtual override {
         address owner = ERC721.ownerOf(tokenId);
         require(to != owner, "ERC721: approval to current owner");
@@ -138,6 +150,7 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
     /**
      * @dev See {IERC721-getApproved}.
      */
+     //토큰Id가 누군가에게 approved된 상태면 승인된 operator의 주소를 반환한다. 
     function getApproved(uint256 tokenId) public view virtual override returns (address) {
         _requireMinted(tokenId);
 
@@ -147,6 +160,8 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
     /**
      * @dev See {IERC721-setApprovalForAll}.
      */
+     // 이 함수를 호출한 msg.sender가 컨트랙트에서 가지고 있는 모든 NFT를
+     // 특정 operator에게 승인하는 함수다. 
     function setApprovalForAll(address operator, bool approved) public virtual override {
         _setApprovalForAll(_msgSender(), operator, approved);
     }
@@ -154,6 +169,8 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
     /**
      * @dev See {IERC721-isApprovedForAll}.
      */
+     // owner가 operator에게 setApprovalForAll함수를 통해 모든 NFT를 승인했는지 여부를 전달한다.
+     // 모든 NFT가 승인되면 true, 아니면 false
     function isApprovedForAll(address owner, address operator) public view virtual override returns (bool) {
         return _operatorApprovals[owner][operator];
     }
@@ -161,6 +178,8 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
     /**
      * @dev See {IERC721-transferFrom}.
      */
+    //from 주소에서 to 주소로 토큰 아이디를 옮긴다. 
+    //from에는 토큰의 owner나 operator만 올 수 있다. 
     function transferFrom(address from, address to, uint256 tokenId) public virtual override {
         //solhint-disable-next-line max-line-length
         require(_isApprovedOrOwner(_msgSender(), tokenId), "ERC721: caller is not token owner or approved");
@@ -171,6 +190,9 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
     /**
      * @dev See {IERC721-safeTransferFrom}.
      */
+    //NFT를 받는 주소가 NFT를 받을 수 있는 주소인지 확인하는 함수다. 
+    //trasferfrom함수는 받는 주소가 NFT를 사용할 수 있는지 확인하지 않고 보내기 때문에
+    //trasferfrom함수는 잘못 사용하면 NFT를 버릴수도 있다.
     function safeTransferFrom(address from, address to, uint256 tokenId) public virtual override {
         safeTransferFrom(from, to, tokenId, "");
     }
@@ -201,6 +223,10 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
      *
      * Emits a {Transfer} event.
      */
+    //_transfer() 함수를 실행해서 token ID 소유권을 변경한다.
+    //require문에 있는 _checkOnERC721Received()함수를 실행한다. 
+    //_checkOnERC721Received 함수는 받는 컨트랙트에 onERC721Received()함수가 제대로 구현되었는지 확인한다. 
+    
     function _safeTransfer(address from, address to, uint256 tokenId, bytes memory data) internal virtual {
         _transfer(from, to, tokenId);
         require(_checkOnERC721Received(from, to, tokenId, data), "ERC721: transfer to non ERC721Receiver implementer");

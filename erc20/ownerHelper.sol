@@ -3,6 +3,7 @@
 
 pragma solidity >=0.7.0 <0.9.0;
 
+//ERC20의 표준 인터페이스 
 interface ERC20Interface {
     function totalSupply() external view returns (uint256);
     function balanceOf(address account) external view returns (uint256);
@@ -16,6 +17,9 @@ interface ERC20Interface {
     event Approval(address indexed owner, address indexed spender, uint256 oldAmount, uint256 amount);
 }
 
+//오버플로우, 언더플로우를 방지하기 위한 라이브러리
+//오버플로우 데이터 타입의 최댓값을 초과하면 발생하는 에러
+//언더플로우 데이터 타입의 최솟값보다 미만이되면 발생하는 에러
 library SafeMath {
   	function mul(uint256 a, uint256 b) internal pure returns (uint256) {
 			uint256 c = a * b;
@@ -40,11 +44,19 @@ library SafeMath {
 	}
 }
 
+//추상화 컨트랙트 
+//abstract contract는 contract의 구현된 기능과 interface의 추상화 기능 모두를 포함
+//abstract contract는 실제 contract에서 사용하지 않으면
+//추상으로 표시되어 사용되지 않음 
 abstract contract OwnerHelper {
+  //_owner는 관리자 
   	address private _owner;
+
+  //아래의 이벤트는 관리자가 변경됐을 때 이전 관리자의 주소와 새로운 관리자의 주소를 로그로 남깁니다.
 
   	event OwnershipTransferred(address indexed preOwner, address indexed nextOwner);
 
+//함수 실행 이전에 함수를 실행시키는 사람이 관리자인지 확인 
   	modifier onlyOwner {
 			require(msg.sender == _owner, "OwnerHelper: caller is not owner");
 			_;
@@ -126,6 +138,7 @@ contract SimpleToken is ERC20Interface, OwnerHelper {
       return true;
     }
 
+  //
     function transferFrom(address sender, address recipient, uint256 amount) external virtual override returns (bool) {
       _transfer(sender, recipient, amount);
       emit Transfer(msg.sender, sender, recipient, amount);
@@ -145,6 +158,8 @@ contract SimpleToken is ERC20Interface, OwnerHelper {
       _balances[recipient] = _balances[recipient].add(amount);
     }
 
+  //토큰의 전체 락에 대한 처리 
+  //Lock은, ERC-20에서 지원하는 토큰의 분배나 이동 등의 유동성을 제한하는 기능입니다.
     function isTokenLock(address from, address to) public view returns (bool lock) {
       lock = false;
 
@@ -152,17 +167,19 @@ contract SimpleToken is ERC20Interface, OwnerHelper {
       {
            lock = true;
       }
-
+      //토큰의 개인 락에 대한 처리 
       if(_personalTokenLock[from] == true || _personalTokenLock[to] == true) {
            lock = true;
       }
     }
 
+  //토큰 락 해제 함수
     function removeTokenLock() onlyOwner public {
       require(_tokenLock == true);
       _tokenLock = false;
     }
 
+  //개별 토큰락 삭제
     function removePersonalTokenLock(address _who) onlyOwner public {
       require(_personalTokenLock[_who] == true);
       _personalTokenLock[_who] = false;

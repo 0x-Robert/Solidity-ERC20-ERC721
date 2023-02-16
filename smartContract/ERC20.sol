@@ -28,13 +28,16 @@ contract ERC20 is IERC20 {
         return true;
     }
 
-
+    //approve 후 transferFrom을 사용하는 트랜잭션 워크플로우 
+    //토큰 소유자가 제어를 다른 주소에 위임할 수 있게 해준다. 이것은 제어를 토큰 배포 컨트랙트에 위임하는데 
+    //가장 많이 사용되지만 거래소에서도 많이 사용된다. 
     function approve(address spender, uint amount) external returns (bool) {
         allowance[msg.sender][spender] = amount;
         emit Approval(msg.sender, spender, amount);
         return true;
     }
 
+    //approve 후 transferFrom을 사용하는 트랜잭션 워크플로우 
     function transferFrom(
         address sender,
         address recipient,
