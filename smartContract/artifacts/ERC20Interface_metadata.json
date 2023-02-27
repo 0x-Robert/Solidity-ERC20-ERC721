@@ -239,7 +239,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"erc20/erc20.sol": "ERC20Interface"
+			"smartContract/erc20_test.sol": "ERC20Interface"
 		},
 		"evmVersion": "paris",
 		"libraries": {},
@@ -253,12 +253,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"erc20/erc20.sol": {
-			"keccak256": "0x338d354f5c07461ec3662f43f3bfae573fec712ebf8b6c39f63491299dee85f0",
+		"smartContract/erc20_test.sol": {
+			"keccak256": "0x30eea27cedbab71fefa31a33fba61eb969feff3cbb52354c512eb97e94211f62",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://053c8611b44d8a5ba7feee30cde1f62735333cac3f68f7b5d6d8017a4db14ae7",
-				"dweb:/ipfs/QmVUky4yJe9xhmbiQUoim7tg1ghioyCxbB3mEPxQR4zgED"
+				"bzz-raw://f99be4dc758fabbd7581e13fe9e7adb3eff448ea81dcb66798e98fb4928ca7c4",
+				"dweb:/ipfs/QmUEDBAJ8kNJjR9hFRqaTkdj686dxG7qwE23cojNaGpmU1"
 			]
 		}
 	},

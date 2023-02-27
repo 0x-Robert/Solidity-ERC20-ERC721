@@ -6,6 +6,22 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "getName",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "getSymbol",
+						"type": "string"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
 				"anonymous": false,
 				"inputs": [
 					{
@@ -96,6 +112,82 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "_allowances",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "_decimals",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "_name",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "_symbol",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "_totalSupply",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
 						"name": "owner",
 						"type": "address"
 					},
@@ -161,6 +253,45 @@
 			},
 			{
 				"inputs": [],
+				"name": "decimals",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "name",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "symbol",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "totalSupply",
 				"outputs": [
 					{
@@ -200,7 +331,7 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "spender",
+						"name": "sender",
 						"type": "address"
 					},
 					{
@@ -239,7 +370,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"erc20/erc20.sol": "ERC20Interface"
+			"smartContract/erc20_test.sol": "SimpleToken"
 		},
 		"evmVersion": "paris",
 		"libraries": {},
@@ -253,12 +384,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"erc20/erc20.sol": {
-			"keccak256": "0x338d354f5c07461ec3662f43f3bfae573fec712ebf8b6c39f63491299dee85f0",
+		"smartContract/erc20_test.sol": {
+			"keccak256": "0x30eea27cedbab71fefa31a33fba61eb969feff3cbb52354c512eb97e94211f62",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://053c8611b44d8a5ba7feee30cde1f62735333cac3f68f7b5d6d8017a4db14ae7",
-				"dweb:/ipfs/QmVUky4yJe9xhmbiQUoim7tg1ghioyCxbB3mEPxQR4zgED"
+				"bzz-raw://f99be4dc758fabbd7581e13fe9e7adb3eff448ea81dcb66798e98fb4928ca7c4",
+				"dweb:/ipfs/QmUEDBAJ8kNJjR9hFRqaTkdj686dxG7qwE23cojNaGpmU1"
 			]
 		}
 	},
