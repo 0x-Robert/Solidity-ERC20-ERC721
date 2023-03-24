@@ -1,3 +1,3 @@
 #!/bin/bash
 
-remixd -s /home/robertseo/work/solidity --remix-ide https://remix.ethereum.org
+remixd -s $1 --remix-ide https://remix.ethereum.org
