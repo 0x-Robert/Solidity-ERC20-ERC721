@@ -1,0 +1,15 @@
+{
+  "name": "Purple Friendship Blooms",
+  "description": "Keep sharing or the blossom will die",
+  "image": "https://ipfs.thirdwebcdn.com/ipfs/QmZhNtxz9qAUxU7QKSFG4mScZKzRFNhGLAdFnyTcvc8SBW/0",
+  "attributes": [
+    {
+      "trait-type": "FlowerStage",
+      "value": "Blooms"
+    },
+    {
+      "trait-type": "FlowerColor",
+      "value": "PURPLE"
+    }
+  ]
+}

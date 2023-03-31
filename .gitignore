@@ -1,3 +1,6 @@
 ./etherscan/etherscan_js_contract/node_modules/
 ./etherscan/web3js_practice/node_modules/
 node_module/
+ipfs_upload/node_modules
+ipfs_upload/node_modules
+ipfs_upload/*.png

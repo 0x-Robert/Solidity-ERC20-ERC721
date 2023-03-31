@@ -1,0 +1,15 @@
+{
+  "name": "Purple Friendship SEEDLING",
+  "description": "This Sprout will bloom with friends",
+  "image": "https://ipfs.thirdwebcdn.com/ipfs/QmUifBAuNz687i8SAn4jcwGa89YJVbvv5B7LUck3ehqDgd/0",
+  "attributes": [
+    {
+      "trait-type": "FlowerStage",
+      "value": "SEEDLING"
+    },
+    {
+      "trait-type": "FlowerColor",
+      "value": "PURPLE"
+    }
+  ]
+}

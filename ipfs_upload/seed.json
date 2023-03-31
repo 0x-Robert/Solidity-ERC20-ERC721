@@ -1,0 +1,15 @@
+{
+  "name": "Friendship Seed",
+  "description": "This seed will grow with friends",
+  "image": "https://ipfs.thirdwebcdn.com/ipfs/QmTtabzhc4RPFZzeLP8gpPeHfo4wthdeAN5Ui46dN8c71Z/0",
+  "attributes": [
+    {
+      "trait-type": "FlowerStage",
+      "value": "SEED"
+    },
+    {
+      "trait-type": "FlowerColor",
+      "value": "UNKNOWN"
+    }
+  ]
+}
