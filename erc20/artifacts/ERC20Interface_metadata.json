@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.7+commit.e28d00a7"
+		"version": "0.8.18+commit.87f61d96"
 	},
 	"language": "Solidity",
 	"output": {
@@ -239,9 +239,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"erc20/erc20.sol": "ERC20Interface"
+			"erc20_in.sol": "ERC20Interface"
 		},
-		"evmVersion": "london",
+		"evmVersion": "paris",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -253,12 +253,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"erc20/erc20.sol": {
-			"keccak256": "0x338d354f5c07461ec3662f43f3bfae573fec712ebf8b6c39f63491299dee85f0",
+		"erc20_in.sol": {
+			"keccak256": "0xbec46f42aaf63060633e9d16e1e6a275a7f43de6f9f94ab777312d5e991ed57c",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://053c8611b44d8a5ba7feee30cde1f62735333cac3f68f7b5d6d8017a4db14ae7",
-				"dweb:/ipfs/QmVUky4yJe9xhmbiQUoim7tg1ghioyCxbB3mEPxQR4zgED"
+				"bzz-raw://f45801b9bd89433d93a39e207979a4413a5116e62ba0d2203e94cbe9a9d729ac",
+				"dweb:/ipfs/QmP9S5ffaMvrHcqjrTnia7hkJG2t6Sq5Lcvf4zd8nhKK5s"
 			]
 		}
 	},

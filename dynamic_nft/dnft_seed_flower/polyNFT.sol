@@ -65,7 +65,7 @@ contract PolyBloom is ERC721, ERC721URIStorage{
     function performUpkeep(bytes calldata /* performData */) external  {
         if ((block.timestamp - lastTimeStamp) > interval ){
             lastTimeStamp = block.timestamp; 
-//            counter = counter + 1;
+            //counter = counter + 1;
             //growFlower(_tokenId);
             growFlower(0);
         }
