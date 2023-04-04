@@ -92,7 +92,6 @@ contract SaleToken {
         //다음은 토큰을 전송하는 함수로 NFT표준에 등록되어있는 함수 
         mintTokenAddress.safeTransferFrom(nftTokenOwner, msg.sender, _nftTokenId);        
 
-
         //매핑에서 제거된 것은 구매 완료처리된 속성
         nftTokenPrices[_nftTokenId] = 0;
 

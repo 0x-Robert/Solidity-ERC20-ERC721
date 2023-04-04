@@ -5,7 +5,7 @@ interface ERC20Interface {
     function totalSupply() external view returns (uint256);
     function balanceOf(address account) external view returns (uint256);
     function transfer(address recipient, uint256 amount) external returns (bool);
-    function approve(address spender, uint256 amount) external returns (bool);
+    function approve(address sdpender, uint256 amount) external returns (bool);
     function allowance(address owner, address spender) external view returns (uint256);
     function transferFrom(address spender, address recipient, uint256 amount) external returns (bool);
 

@@ -53,7 +53,6 @@ contract PolyBloom is ERC721, ERC721URIStorage{
 
     function flowerStage(uint256 _tokenId) public view returns (uint256){
         string memory _uri = tokenURI(_tokenId);
-        
     }
 
     /// @dev this method is called by the Automation Nodes to check if `performUpkeep` should be performed
