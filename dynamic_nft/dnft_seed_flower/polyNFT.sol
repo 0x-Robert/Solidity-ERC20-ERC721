@@ -15,6 +15,11 @@ contract PolyBloom is ERC721, ERC721URIStorage{
     uint interval; 
     uint lastTimeStamp;
 
+//1차 사진 > ipfs 변환 
+//2차 사진 url, 메타데이터(네임, 설명, 이미지url,  ) > ipfs 변환 
+//3차 위의 것을 반복했을 때 배열값으로 저장 
+//UI에서 한번에 업로드 할 수 있게 설정하기
+
 
     string[] IpfsUri = [
         "https://ipfs.thirdwebcdn.com/ipfs/QmQZzXjVu24gfcr8z7hW7xF8MhGd6YeorGE89rErgbTtZC/0",

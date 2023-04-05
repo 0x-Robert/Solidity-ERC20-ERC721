@@ -1,0 +1,3 @@
+oracle address on sepolia : 	0x649a2C205BE7A3d5e99206CEEFF30c794f0E31EC
+api consumer contract address on sepolia : 
+

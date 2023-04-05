@@ -37,9 +37,9 @@ contract DynamicNFT is VRFConsumerBase, ERC721Enumerable, Ownable{
     /**
      * Constructor inherits VRFConsumerBase
      * 
-     * Network: Rinkeby
-     * Chainlink VRF Coordinator address: 0xb3dCcb4Cf7a26f6cf6B120Cf5A73875B7BBc655B
-     * LINK token address:                0x01BE23585060835E02B77ef475b0Cc51aA1e0709
+     * Network: sepolia
+     * Chainlink VRF Coordinator address: 0x8103B0A8A00be2DDC778e6e7eaa21791Cd364625
+     * LINK token address:                	0x779877A7B0D9E8603169DdbD7836e478b4624789
      * Key Hash: 0x2ed0feb3e7fd2022120aa84fab1945545a9f2ffc9076fd6156fa96eaff4c1311
      */
     constructor(
