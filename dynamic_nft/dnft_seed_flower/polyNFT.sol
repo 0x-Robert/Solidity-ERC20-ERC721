@@ -19,6 +19,9 @@ contract PolyBloom is ERC721, ERC721URIStorage{
 //2차 사진 url, 메타데이터(네임, 설명, 이미지url,  ) > ipfs 변환 
 //3차 위의 것을 반복했을 때 배열값으로 저장 
 //UI에서 한번에 업로드 할 수 있게 설정하기
+//0x9E2837eCaF5c6b70553E018f35b4E9aFcEA07314   -v0
+//0xd9666aC82dC2D22B1B9096E6870C7318e16770d8   -v1 
+
 
 
     string[] IpfsUri = [
@@ -26,12 +29,28 @@ contract PolyBloom is ERC721, ERC721URIStorage{
         "https://ipfs.thirdwebcdn.com/ipfs/QmSHvPSTJUbbaj7xsm8rJCwx88jeRAtDij94D6pXG9X4mJ/0",
         "https://ipfs.thirdwebcdn.com/ipfs/QmTqVehhJLYHUKqUBb4sotya1mvB5AAx3CZFZ1goGKABdy/0"
     ];
+    //string[] memory newUri = ["https://ipfs.thirdwebcdn.com/ipfs/QmABC123/0", "https://ipfs.thirdwebcdn.com/ipfs/QmDEF456/0"];
+    //setIpfsUri(newUri);
+
+    //getIpfsUri 
+    // string[]: https://ipfs.thirdwebcdn.com/ipfs/QmQZzXjVu24gfcr8z7hW7xF8MhGd6YeorGE89rErgbTtZC/0,  https://ipfs.thirdwebcdn.com/ipfs/QmSHvPSTJUbbaj7xsm8rJCwx88jeRAtDij94D6pXG9X4mJ/0,  https://ipfs.thirdwebcdn.com/ipfs/QmTqVehhJLYHUKqUBb4sotya1mvB5AAx3CZFZ1goGKABdy/0
+
+    //string[] IpfsUri; 
+
 
     constructor(uint _interval ) ERC721("POLYdNFTs", "dNFT"){
-        interval = _interval ; 
+        interval = _interval; 
         lastTimeStamp = block.timestamp;
-
     }
+
+    // function setIpfsUri(string[] memory _uri) public {
+    //     IpfsUri = _uri;
+    // }
+
+    function getIpfsUri() public view returns (string[] memory) {
+        return IpfsUri;
+    }
+
 
     function tokenURI(uint256 tokenId)
         public
@@ -71,11 +90,16 @@ contract PolyBloom is ERC721, ERC721URIStorage{
             lastTimeStamp = block.timestamp; 
             //counter = counter + 1;
             //growFlower(_tokenId);
+            //growFlower(counter);
             growFlower(0);
         }
     }
-        function _burn(uint256 tokenId) internal override(ERC721, ERC721URIStorage) {
+
+
+    function _burn(uint256 tokenId) internal override(ERC721, ERC721URIStorage) {
         super._burn(tokenId);
     }
 
 }
+
+
