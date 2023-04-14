@@ -191,19 +191,6 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "getIpfsUri",
-				"outputs": [
-					{
-						"internalType": "string[]",
-						"name": "",
-						"type": "string[]"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
 				"inputs": [
 					{
 						"internalType": "uint256",
@@ -509,7 +496,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"dynamic_nft/dnft_seed_flower/polyNFT.sol": "PolyBloom"
+			"originPolyNFT.sol": "PolyBloom"
 		},
 		"evmVersion": "paris",
 		"libraries": {},
@@ -619,12 +606,12 @@
 				"dweb:/ipfs/Qmct36zWXv3j7LZB83uwbg7TXwnZSN1fqHNDZ93GG98bGz"
 			]
 		},
-		"dynamic_nft/dnft_seed_flower/polyNFT.sol": {
-			"keccak256": "0xa13374096bac10a351a638ea64a7a27cbed6b248fb1c652d9492ff35764bdc42",
+		"originPolyNFT.sol": {
+			"keccak256": "0xad86eda315fb9e669255040880583af0446af38874f048b31be91bffae9e1c0e",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://8df06ed7525f48a7c96d7411320fb4ac01fb883884261146b0e38e9ce376eeca",
-				"dweb:/ipfs/QmXAgS5LwQC2CRSHcSk84DoxVRF85m64CvSc4U9gWZGqXK"
+				"bzz-raw://95af94983050c19aeb710adaa0e05bc8165065f4eea2e5ffb60422ee318c03d4",
+				"dweb:/ipfs/QmaAyMYACFXT9YzjhtFU84W6fBZNyjvjG4jm3MPkNcrCGL"
 			]
 		}
 	},

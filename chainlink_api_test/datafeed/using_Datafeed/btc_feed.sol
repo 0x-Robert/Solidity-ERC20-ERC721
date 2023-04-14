@@ -17,8 +17,6 @@ contract PriceConsumerV3 {
      30733.96 = 4000만원 
      3073396000000 / 100000000
 
-
-
      */
     constructor() {
         priceFeed = AggregatorV3Interface(
