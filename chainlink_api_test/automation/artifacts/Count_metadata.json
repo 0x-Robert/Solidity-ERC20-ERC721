@@ -1,0 +1,71 @@
+{
+	"compiler": {
+		"version": "0.8.18+commit.87f61d96"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "count",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "counted",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"automation/automation.sol": "Count"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"automation/automation.sol": {
+			"keccak256": "0xcc27f975f23d24b2f23d2354ac882fd47fd551b3a3d39bf5fdbca5d1125c69b3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f13cb15b5abfc0824a6ceb61c70cffa41a5108740c3fae99ba0e813bf762a8fa",
+				"dweb:/ipfs/QmSe9GCiyJXuwKoSnQwGeP1434rF8ioVyAobEhV3oQ3fXy"
+			]
+		}
+	},
+	"version": 1
+}
