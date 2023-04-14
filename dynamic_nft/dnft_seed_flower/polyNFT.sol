@@ -5,52 +5,30 @@ pragma  solidity ^0.8.7;
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
-
+//0x5DfB8244EcCF8a65bA65824435484643f3c65f4b
+//0x2f54E3A25AA85d9964C367Cc2284d32D2Ef8C50F
 contract PolyBloom is ERC721, ERC721URIStorage{
 
     using Counters for Counters.Counter; 
-
     Counters.Counter private _tokenIdCounter; 
 
     uint interval; 
     uint lastTimeStamp;
+    string[] IpfsUri; 
 
-//1차 사진 > ipfs 변환 
-//2차 사진 url, 메타데이터(네임, 설명, 이미지url,  ) > ipfs 변환 
-//3차 위의 것을 반복했을 때 배열값으로 저장 
-//UI에서 한번에 업로드 할 수 있게 설정하기
-//0x9E2837eCaF5c6b70553E018f35b4E9aFcEA07314   -v0
-//0xd9666aC82dC2D22B1B9096E6870C7318e16770d8   -v1 
-
-
-
-    string[] IpfsUri = [
-        "https://ipfs.thirdwebcdn.com/ipfs/QmQZzXjVu24gfcr8z7hW7xF8MhGd6YeorGE89rErgbTtZC/0",
-        "https://ipfs.thirdwebcdn.com/ipfs/QmSHvPSTJUbbaj7xsm8rJCwx88jeRAtDij94D6pXG9X4mJ/0",
-        "https://ipfs.thirdwebcdn.com/ipfs/QmTqVehhJLYHUKqUBb4sotya1mvB5AAx3CZFZ1goGKABdy/0"
-    ];
-    //string[] memory newUri = ["https://ipfs.thirdwebcdn.com/ipfs/QmABC123/0", "https://ipfs.thirdwebcdn.com/ipfs/QmDEF456/0"];
-    //setIpfsUri(newUri);
-
-    //getIpfsUri 
-    // string[]: https://ipfs.thirdwebcdn.com/ipfs/QmQZzXjVu24gfcr8z7hW7xF8MhGd6YeorGE89rErgbTtZC/0,  https://ipfs.thirdwebcdn.com/ipfs/QmSHvPSTJUbbaj7xsm8rJCwx88jeRAtDij94D6pXG9X4mJ/0,  https://ipfs.thirdwebcdn.com/ipfs/QmTqVehhJLYHUKqUBb4sotya1mvB5AAx3CZFZ1goGKABdy/0
-
-    //string[] IpfsUri; 
-
-
-    constructor(uint _interval ) ERC721("POLYdNFTs", "dNFT"){
-        interval = _interval; 
-        lastTimeStamp = block.timestamp;
+    function setIpfsUri(string[] memory _uri) public {
+        IpfsUri = _uri;
     }
-
-    // function setIpfsUri(string[] memory _uri) public {
-    //     IpfsUri = _uri;
-    // }
 
     function getIpfsUri() public view returns (string[] memory) {
         return IpfsUri;
     }
 
+    constructor(uint _interval ) ERC721("POLYdNFTs", "dNFT"){
+        interval = _interval ; 
+        lastTimeStamp = block.timestamp;
+
+    }
 
     function tokenURI(uint256 tokenId)
         public
@@ -77,7 +55,14 @@ contract PolyBloom is ERC721, ERC721URIStorage{
 
     function flowerStage(uint256 _tokenId) public view returns (uint256){
         string memory _uri = tokenURI(_tokenId);
+        for (uint256 i = 0; i < IpfsUri.length; i++) {
+            if (keccak256(bytes(_uri)) == keccak256(bytes(IpfsUri[i]))) {
+                return i;
+        }
     }
+                return 0;
+    }
+
 
     /// @dev this method is called by the Automation Nodes to check if `performUpkeep` should be performed
     function checkUpkeep(bytes calldata) external view returns (bool upkeepNeeded, bytes memory){
@@ -90,16 +75,11 @@ contract PolyBloom is ERC721, ERC721URIStorage{
             lastTimeStamp = block.timestamp; 
             //counter = counter + 1;
             //growFlower(_tokenId);
-            //growFlower(counter);
             growFlower(0);
         }
     }
-
-
-    function _burn(uint256 tokenId) internal override(ERC721, ERC721URIStorage) {
+        function _burn(uint256 tokenId) internal override(ERC721, ERC721URIStorage) {
         super._burn(tokenId);
     }
 
 }
-
-
