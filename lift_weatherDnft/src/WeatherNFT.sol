@@ -93,9 +93,9 @@ contract WeatherNFT is ERC721, Ownable {
     }
 
     function mint(
-        address _to,
-        string[4] memory _uris,
-        uint256 _locationId
+        address _to, // 계정주소 
+        string[4] memory _uris, // [ "a", "b", "c", "d" ] 솔리디티 배열 , [a b c d ] >> go
+        uint256 _locationId     // 1 >> 민트할때 요청받는거 
     ) external returns (uint256) {
         uint256 newTokenId = _tokenIds.current();
         _mint(_to, newTokenId);
